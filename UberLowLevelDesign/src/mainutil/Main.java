@@ -39,7 +39,7 @@ public class Main {
         cabService.registerCab("c2", "DriverTwo", new Location(11, 11), VehicleType.HATCHBACK, "TS08XY5678");
 
         // Step 1: Show fare estimates
-        System.out.println("\n📋 Fare Estimates:");
+        System.out.println("\n Fare Estimates:");
         List<VehicleFareEstimate> estimates = bookingService.showAvailableVehicleTypes(rider.getCurrentLocation(), destination);
         for (VehicleFareEstimate e : estimates) {
             System.out.println(" - " + e);
@@ -52,7 +52,7 @@ public class Main {
         try {
             booking = bookingService.bookCab(rider, chosenType, destination);
         } catch (RuntimeException e) {
-            System.out.println("❌ Booking failed: " + e.getMessage());
+            System.out.println("Booking failed: " + e.getMessage());
             return;
         }
 
@@ -81,7 +81,7 @@ public class Main {
         }
 
         // Step 5: Simulate ride in progress
-        System.out.println("🚕 Ride is in progress...");
+        System.out.println("Ride is in progress...");
         for (int i = 1; i <= 5; i++) {
             System.out.print("Traveling");
             for (int j = 0; j < i; j++) System.out.print(".");
@@ -93,7 +93,7 @@ public class Main {
         bookingService.driverEndRide(booking);
 
         // Step 7: Summary
-        System.out.println("\n🧾 Final Ride Summary:");
+        System.out.println("\nFinal Ride Summary:");
         booking.printSummary();
     }
 }
